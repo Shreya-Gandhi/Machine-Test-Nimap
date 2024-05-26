@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        .form-control {
+            background-color: #dcdbe4;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            border-bottom: 1px solid #241a67;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid P-0">
+        <!-- Header -->
+        <div class="fixed-top" style="background-color: #241a67;">
+            <div class="d-flex justify-content-between align-items-center p-3">
+                <div class="bg-white p-2">
+                    <h3 class="text-dark">DemoApp</h3>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button" class="btn btn-primary"
+                        routerLink="/">Home</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button" class="btn btn-primary"
+                        routerLink="/about">About Us</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button" class="btn btn-primary"
+                        routerLink="/jobs">Jobs</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button" class="btn btn-primary"
+                        routerLink="/clients">Clients</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button" class="btn btn-primary"
+                        routerLink="/employees">Employees</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button" class="btn btn-primary"
+                        routerLink="/contact">Contact Us</button>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5 pt-5">
+            <div style="background-color: #26a8a8;">
+                <h2>Register</h2>
+            </div>
+            <div class="container p-3 my-3 border row" style="background-color: #dcdbe4; ">
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col">
+                            <i class="bi bi-person-square" style="font-size: 100px; color: #26a8a8;"></i>
+                            <div class="form-group">
+                                <label for="photo">Photo</label>
+                                <input id="photo" type="file" (change)="onFileChange($event)" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input id="firstName" type="text" formControlName="firstName" class="form-control"
+                                    [ngClass]="{'is-invalid': submitted && f['firstName'].errors}">
+                                <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['firstName'].errors?.['required']">First Name is required</div>
+                                    <div *ngIf="f['firstName'].errors?.['pattern']">First Name must be alphabetic and
+                                        not
+                                        exceed 20
+                                        characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input id="lastName" type="text" formControlName="lastName" class="form-control"
+                                    [ngClass]="{'is-invalid': submitted && f['lastName'].errors}">
+                                <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['lastName'].errors?.['required']">Last Name is required</div>
+                                    <div *ngIf="f['lastName'].errors?.['pattern']">Last Name must be alphabetic and not
+                                        exceed 20
+                                        characters
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" type="email" formControlName="email" class="form-control"
+                                    [ngClass]="{'is-invalid': submitted && f['email'].errors}">
+                                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+                                    <div *ngIf="f['email'].errors?.['email']">Email is invalid</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input id="phone" type="text" formControlName="phone" placeholder="eg: +123-4567890"
+                                    class="form-control" [ngClass]="{'is-invalid': submitted && f['phone'].errors}">
+                                <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['phone'].errors?.['required']">Phone is required</div>
+                                    <div *ngIf="f['phone'].errors?.['pattern']">Phone must be a valid number</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input id="age" type="range" formControlName="age" class="form-control">
+                                <span>{{ registrationForm.controls['age'].value }}</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input id="state" type="text" formControlName="state" class="form-control"
+                                    [ngClass]="{'is-invalid': submitted && f['state'].errors}">
+                                <div *ngIf="submitted && f['state'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['state'].errors?.['required']">State is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input id="country" type="text" formControlName="country" class="form-control"
+                                    [ngClass]="{'is-invalid': submitted && f['country'].errors}">
+                                <div *ngIf="submitted && f['country'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['country'].errors?.['required']">Country is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input id="address" type="text" formControlName="address" class="form-control"
+                                    [ngClass]="{'is-invalid': submitted && f['address'].errors}">
+                                <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['address'].errors?.['required']">Address is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tags">Tags</label>
+                                <input id="tags" type="text" formControlName="tags" class="form-control"
+                                    [ngClass]="{'is-invalid': submitted && f['tags'].errors}">
+                                <div *ngIf="submitted && f['tags'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['tags'].errors?.['required']">tags is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group form-check">
+                                <input id="subscribeToNewsletter" type="checkbox"
+                                    formControlName="subscribeToNewsletter" class="form-check-input">
+                                <label for="subscribeToNewsletter" class="form-check-label">Subscribe to
+                                    Newsletter</label>
+                            </div>
+                            <br><br>
+                            <button type="submit" class="btn btn-primary"
+                                style="background-color: #26a8a8;">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="fixed-bottom p-3" style="background-color: #241a67;">
+            <p style="text-align: center; color: white;">Subscribe to our Job Seeker Mailing List</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter your email address">
+                <div class="input-group-append">
+                    <button style="background-color: #26a8a8;" class="btn btn-primary" type="button"><i
+                            class="bi bi-envelope-fill"></i>Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            margin-bottom: 200px;
+            /* Ensure content is not hidden behind the fixed footer */
+        }
+    </style>
+
+</body>
+
+</html>

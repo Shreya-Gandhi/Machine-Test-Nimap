@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="home.component.css">
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <div class="fixed-top" style="background-color: #241a67;">
+            <div class="d-flex justify-content-between align-items-center p-3">
+                <div class="bg-white p-2">
+                    <h3 class="text-dark">DemoApp</h3>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button" class="btn btn-primary"
+                        routerLink="/">Home</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button"
+                        class="btn btn-primary">About Us</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button"
+                        class="btn btn-primary">Jobs</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button"
+                        class="btn btn-primary">Clients</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button"
+                        class="btn btn-primary">Employees</button>
+                    <button style="background-color: #26a8a8; margin-right: 10px;" type="button"
+                        class="btn btn-primary">Contact Us</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div>
+            <div class="content mt-5 pt-5">
+                <div
+                    class="background-section d-flex flex-column align-items-center justify-content-center text-center">
+                    <h2><b><i>I'm looking for</i></b></h2>
+                    <div class="input-group mb-3 w-50">
+                        <input type="text" class="form-control" placeholder="Enter job description">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" style="color: white;">
+                                <i class="bi bi-search"></i> Search
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-row align-items-center row">
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" id="fullTime">
+                            <label class="form-check-label" for="fullTime">Full Time</label>
+                        </div>
+                        <div class="form-check col">
+                            <input class="form-check-input" type="checkbox" id="partTime">
+                            <label class="form-check-label" for="partTime">Part Time/Casual/Freelance</label>
+                        </div>
+                    </div><br>
+                    <div class="form-row align-items-center row">
+                        <select class="form-control">
+                            <option>Select your location</option>
+                            <option>Sydney</option>
+                            <option>Melbourne</option>
+                            <option>Brisbane</option>
+                            <option>Perth</option>
+                            <option>Adelaide</option>
+                        </select>
+                    </div><br><br>
+                    <button class="btn btn-primary mt-3" routerLink="/register" style="color: white;">Register</button>
+                </div>
+                <hr style="height: 3px; width: 100%; background-color: black;">
+                <div class="white-background p-3 mt-5 ">
+                    <p style="text-align: center;">We're leaders in</p>
+                    <h4 style="text-align: center;"><b><i> Creative Digital Recruitment</i></b></h4>
+                    <p style="text-align: center;">Based in Surry Hills, the creative hub of Sydney we are surrounded by
+                        creativity and that
+                        reflects on
+                        the
+                        type of jobs we recruit for.</p>
+                    <div class="container">
+                        <button type="button" class="btn btn-secondary" style="text-align: center;">Find out more about
+                            us</button>
+                    </div>
+
+                </div>
+                <hr style="height: 3px; width: 100%; background-color: black;">
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="fixed-bottom p-3" style="background-color: #241a67;">
+            <p style="text-align: center; color: white;">Subscribe to our Job Seeker Mailing List</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter your email address">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button"><i class="bi bi-envelope-fill"></i>Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
